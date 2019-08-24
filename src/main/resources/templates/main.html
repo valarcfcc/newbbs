@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>主界面</title>
+    <link th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet"/>
+    <link th:href="@{/bootstrap/css/bootstrap-theme.css}" rel="stylesheet"/>
+    <link th:href="@{/css/signin.css}" rel="stylesheet"/><link th:href="@{/css/sun.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<br>
+<div style="float:right"><a href="login">退出登录</a></div>
+<br>
+<br>
+<br>
+<center>
+    <h1>欢迎登陆</h1>
+</center>
+
+<center>
+    <table width="1000" height="5" border="5" cellspacing="5" cellpadding="5">
+
+        <tr>
+            <td>
+                 <div 用户： th:text="'用户：' + ${session.username}  + '      登录时间：' + ${session.time}"></div>
+            </td>
+        </tr>
+    </table>
+    <table width="1000" height="400" border="5" cellspacing="5" cellpadding="5">
+
+        <tr>
+            <td>
+                <center>
+                    <div th:if="${e}">
+                        <div th:text="${e}" style="color:#F00"></div>
+                    </div>
+                    <div style="float:left"><a th:href="@{/dissess}">
+                        <img src="image/sungou2.1.jpg" width="230" height="230"  /></a></div>
+                    <a href="/newtitle">
+                        <img src="image/sungou2.4.jpg" width="230" height="230"  /></a>
+                    <div style="float:right"><a href="/person">
+                        <img src="image/sungou2.3.jpg" width="230" height="230"  /></a></div>
+                    <br><br>
+                    <div style="float:left"> <a  th:href="@{/dissess}">  <font size="5">浏览帖子</font></a></div>
+                    <a href="/newtitle">  <font size="5">发表帖子</font></a>
+                    <div style="float:right"><a href="/person">  <font size="5">个人资料</font></a></div>
+                </center>
+            </td>
+        </tr>
+    </table>
+    <div th:if="${error}">
+        <div th:text="${error}" style="color:#5865ff"></div>
+    </div>
+</center>
+</body>
+</html>
+

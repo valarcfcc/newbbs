@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <link th:href="@{/css/sun.css}" rel="stylesheet"/>
+    <title>detail</title>
+</head>
+<body>
+<br><br><br><br>
+<center>
+    <h2>浏览帖子</h2>
+</center>
+</br>
+<table  align=center width=800 border=5 cellspacing=5 cellpadding=5>
+    <tr>
+        <td width=161><font size=5 th:text="${title.titName}"></font></td><td width=590></td>
+    </tr>
+</table><table  align= center width=800 border=4 cellspacing=4 cellpadding=4>
+    <tr>
+        <td >发表者 </td><td th:text="${title.username}"></td>
+        <td>发表时间</td><td th:text="${title.titTime}"></td>
+    </tr>
+</table>
+<table align=center height=300 width=800 border=4 cellspacing=4 cellpadding=4>
+    <tr>
+        <td th:text="${title.titText}"></td>
+    </tr>
+</table>
+<hr>
+<table align=center width=800 border=4 cellspacing=4 cellpadding=4 th:each="reply:${replys}">
+    <tr>
+        <td width=200 th:text="'用户：' + ${reply.username}"></td>
+        <td rowspan=2 width=560 th:text="${reply.replyText}"></td>
+    </tr>
+    <tr>
+        <td th:text="'回复时间：'+ ${reply.replyTime}"></td>
+    </tr>
+</table>
+
+<form id="myform" action="/reply" method="post">
+    <table align=center width=800 border=4 cellspacing=4 cellpadding=4>
+        <input type="hidden" th:value="${title.titId}"  name="id"/>
+        <input type="hidden" th:value="${title.userId}"  name="userId"/>
+        <input type="hidden" th:value="${title.username}"  name="username"/>
+        <tr>
+            <td>
+                输入你要回复的内容
+            </td>
+            <td>
+                <textarea rows=15 cols="15" name=content></textarea>
+            </td>
+        </tr>
+        <tr align=center>
+            <td colspan=2>
+                <input type="button" value= "确认回复"  onclick="check()">
+                <input type="reset" value="清除重写"  >
+            </td>
+        </tr>
+    </table>
+</form>
+<center><input type="button" value="返回" onclick=history.back();></center>
+<br>
+<script type="text/javascript">
+    //检查表单元素的值是否为空
+    function check(){
+        var myform =  document.getElementById("myform");
+        for(var i=0; i<myform.length; i++ ){
+            if(myform.elements[i].value == ""){
+                alert(myform.elements[i].title + "回复内容不能为空！");
+                myform.elements[i].focus();
+                return;
+            }
+        }
+        myform.submit();
+    }
+</script>
+</body>
+</html>

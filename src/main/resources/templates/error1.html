@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>login</title>
+    <link th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet"/>
+    <link th:href="@{/bootstrap/css/bootstrap-theme.css}" rel="stylesheet"/>
+    <link th:href="@{/css/signin.css}" rel="stylesheet"/><link th:href="@{/css/sun.css}" rel="stylesheet"/>
+</head>
+<body >
+<br><br>
+<center><h2>注册失败，请按照以下格式填写！</h2>
+    <table width="200" border="1" cellspacing="1" cellpadding="1">
+        <tr>
+            <td><font color="white">用户名：</font> </td>
+            <td><font color="white">0-10个英文字母</font></td>
+        </tr>
+        <tr>
+            <td><font color="white">密码：</font></td>
+            <td><font color="white">0-10个字符</font></td>
+        </tr>
+        <tr>
+            <td><font color="white">性别：</font></td>
+            <td><font color="white">1个中文字符</font></td>
+        </tr>
+        <tr>
+            <td><font color="white">年龄：</font></td>
+            <td><font color="white">0-3位数字</font></td>
+        </tr>
+        <tr>
+            <td><font color="white">电话：</font></td>
+            <td><font color="white">11位数字</font></td>
+        </tr>
+        <tr>
+            <td><font color="white">邮箱：</font></td>
+            <td><font color="white">0-40个字符</font></td>
+        </tr>
+    </table>
+    <!-- 保留原页面信息的脚本回退方式 -->
+    <h3> <a href="javascript:history.back()">返回</a>
+    </h3>
+</center>
+</body>
+</html>

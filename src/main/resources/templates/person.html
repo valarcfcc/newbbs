@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>个人</title>
+    <link th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet"/>
+    <link th:href="@{/bootstrap/css/bootstrap-theme.css}" rel="stylesheet"/>
+    <link th:href="@{/css/signin.css}" rel="stylesheet"/><link th:href="@{/css/sun.css}" rel="stylesheet"/>
+</head>
+<body>
+<br>
+<center><h1>抽象论坛</h1></center>
+<br >
+<center><h2>个人资料查询</h2></center>
+<br />
+<center>
+    <table width="500" height="300" border="5" cellspacing="5" cellpadding="5">
+        <tr><td width="129"><font size="5" color="#FFFFFF">用户名</font></td>
+            <td width="322"><font size="5" color="#FFFFFF" th:text = "${session.username}"></font></td>
+        </tr>
+        <tr>
+            <td><font size="5" color="#FFFFFF">性 别</font></td>
+            <td><font size="5" color="#FFFFFF" th:text = "${session.sex}"></font></td>
+        </tr>
+        <tr>
+            <td><font size="5" color="#FFFFFF">年 龄</font></td>
+            <td><font size="5" color="#FFFFFF" th:text = "${session.age}"></font></td>
+        </tr>
+        <tr>
+            <td><font size="5" color="#FFFFFF">电 话</font></td>
+            <td><font size="5" color="#FFFFFF" th:text = "${session.tel}"></font></td>
+        </tr>
+        <tr>
+            <td><font size="5" color="#FFFFFF">邮 箱</font></td>
+            <td><font size="5" color="#FFFFFF" th:text = "${session.email}"></font></td>
+        </tr>
+    </table>
+</center>
+<center><a href="/changePerson">修改资料</a><input type="button" value="返回" onclick=history.back();></center>
+</body>
+</html>
+

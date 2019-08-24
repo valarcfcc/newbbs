@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>发帖</title>
+    <link th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet"/>
+    <link th:href="@{/bootstrap/css/bootstrap-theme.css}" rel="stylesheet"/>
+    <link th:href="@{/css/signin.css}" rel="stylesheet"/><link th:href="@{/css/sun.css}" rel="stylesheet"/>
+</head>
+<body>
+<br>
+<center><h1></h1></center>
+</br>
+<center><h2>发表帖子</h2></center>
+<br />
+<center>
+    <form id="myform" action="dotitle" method="post" >
+
+        <table width="700" height="400" border="5" cellspacing="5" cellpadding="5">
+            <tr >
+                <td>姓名 </td><td><input type="text" size=60 name="name" th:value="${session.username}" readonly></td>
+            </tr>
+            <input type="hidden" th:value="${session.id}"  name="id"/>
+            <tr >
+                <td>E-mail</td><td><input type=text size="60" name="email" th:value="${session.email}" readonly></td>
+            </tr>
+
+             <input type=hidden size="60" name="xx" th:value="${session.id}" readonly>
+
+            <tr >
+                <td>主题 </td><td><input type="text" size="60" name="subject"></td>
+            </tr>
+            <tr valign=top >
+                <td><p><p>内<p><p>容 </td><td> <textarea rows="10" cols="50" name="content"></textarea></td>
+            </tr>
+            <tr align="center">
+                <td colspan="2">
+                    <input type="button" value= "发表" name="send"onclick="check()">
+                    <input type="reset" value="重置 ">
+                </td>
+            </tr>
+        </table>
+        <br><br><input type="button" value="返回" onclick=history.back();>
+    </form>
+</center>
+<script type="text/javascript">
+    // 检查表单元素的值是否为空
+    function check(){
+        var myform = document.getElementById("myform");
+        for(var i=0; i<myform.length; i++ ){
+            if(myform.elements[i].value == ""){
+                alert(myform.elements[i].title + "发表信息不能为空！");
+                myform.elements[i].focus();
+                return;
+            }
+        }
+        myform.submit(); // 表单中最后input提交标签用的是button类型，首先不提交表单，在js判断表单项都不为空时 再提交表单。
+    }
+</script>
+
+</body>
+</html>

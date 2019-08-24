@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <link th:href="@{/css/sun.css}" rel="stylesheet"/>
+    <title>discuss</title>
+</head>
+<body>
+<br><br><br><br>
+<center>
+    <h2>浏览帖子</h2 >
+    <div th:if="${error}">
+        <div th:text="${error}" style="color:#F00"></div>
+    </div>
+</center>
+<br>
+<table align=center width=800 border=4 cellspacing=4 cellpadding=4>
+    <tr>
+        <td width = 150 height = 60 >
+            <font size = 5 > 帖子主题</font >
+        </td >
+        <td width = 150 >
+            <font size = 5 > 发表者</font >
+        </td >
+        <td width = 150 >
+            <font size = 5 > 发表时间 </font>
+        </td>
+    </tr>
+</table>
+<table align=center width=800 border=4 cellspacing=4 cellpadding = 4 th:each="title:${titles}">
+    <tr>
+        <td width = 150 height = 40>
+
+                <a th:href="@{/detail(id=${title.titId})}" ><font size = 5 th:text="${title.titName}"></font></a>
+
+        </td>
+        <td width=150>
+            <font size=5 th:text="${title.username}"></font>
+        </td>
+        <td width = 150 >
+            <font size = 5 th:text="${title.titTime}"></font>
+        </td>
+    </tr>
+</table>
+<center>
+    <input type="button" value="返回" onclick=history.back();>
+</center>
+</body>
+</html>
